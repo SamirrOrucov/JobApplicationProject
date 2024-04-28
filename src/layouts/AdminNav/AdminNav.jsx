@@ -32,6 +32,10 @@ function AdminNav() {
             <FaUser />
             İstifadəçilər
           </NavLink>    
+           <NavLink to="/admin/users">
+            <FaUser />
+            İstifadəçilər
+          </NavLink> 
         </div>
       </div>
     </div>
