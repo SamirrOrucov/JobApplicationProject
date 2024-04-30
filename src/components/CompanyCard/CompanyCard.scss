@@ -1,0 +1,17 @@
+.company_card{
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    width: 48%;
+    display: flex;
+    align-items: center;
+    &_content{
+        &_title{
+
+        }
+        &_text{
+            color: #8a8080;
+            font-size: 13px;
+        }
+    }
+}

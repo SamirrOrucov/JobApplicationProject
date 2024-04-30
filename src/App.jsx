@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout/MainLayout";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login"; 
 import NoPage from "./pages/NoPage/NoPage";
+import Companies from "./pages/Companies/Companies";
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
       <BrowserRouter>
             <Routes>
               <Route path="/" element={<MainLayout />}>
-                <Route index element={<Home />} />
+                {/* <Route index element={<Home />} /> */}
+                <Route path="/"  element={<Companies />}  />
                 <Route path="/*" element={<NoPage />} />
               </Route>
               <Route path="/register" element={<Register />} />
