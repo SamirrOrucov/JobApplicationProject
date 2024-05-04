@@ -1,10 +1,11 @@
 import React from "react";
+import FiltersComponents from "../components/HomePageComponents/FiltersComponents";
 
 
 function Home() {
   return (
     <div>
-Home Page 
+      <FiltersComponents/>
 
    </div>
   );
