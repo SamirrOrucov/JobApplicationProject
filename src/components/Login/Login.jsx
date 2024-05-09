@@ -2,6 +2,7 @@ import React from "react";
 import "./Login.scss";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
+import { BsEnvelope, BsShieldSlash } from "react-icons/bs";
 const onFinish = (values) => {
   console.log("Success:", values);
 };
@@ -39,9 +40,17 @@ function Login() {
                   required: true,
                   message: "Please input your email!",
                 },
+                {
+                  type: "email",
+                  message: "The input is not valid email!",
+                },
               ]}
             >
-              <Input className="input" placeholder="Email" />
+              <Input
+                className="input"
+                prefix={<BsEnvelope />}
+                placeholder="Email"
+              />
             </Form.Item>
 
             <Form.Item
@@ -51,9 +60,14 @@ function Login() {
                   required: true,
                   message: "Please input your password!",
                 },
+                { min: 8, message: "Password must be at least 8 characters!" },
               ]}
             >
-              <Input.Password className="input" placeholder="Password" />
+              <Input.Password
+                className="input"
+                prefix={<BsShieldSlash />}
+                placeholder="Password"
+              />
             </Form.Item>
           </div>
           <Form.Item
