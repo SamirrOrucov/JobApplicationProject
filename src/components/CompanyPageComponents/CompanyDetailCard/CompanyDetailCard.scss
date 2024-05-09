@@ -1,15 +1,19 @@
-.company_card{
+.company_detail_card {
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #e5e5e5;
-    width: 48%;
+    width: 100%;
     display: flex;
     align-items: center;
-    &_content{
-        &_title{
 
+    &_content {
+        &_title {
+            color: black;
+            font-weight: 600;
+            font-size: 20px;
         }
-        &_text{
+
+        &_text {
             color: #8a8080;
             font-size: 13px;
         }

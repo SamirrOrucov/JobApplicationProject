@@ -3,7 +3,7 @@ import { Breadcrumb } from 'antd';
 import "./Companies.scss";
 import { IoSearchSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
-import CompanyCard from '../../components/CompanyCard/CompanyCard';
+import CompanyCard from '../../components/CompanyPageComponents/CompanyCard/CompanyCard';
 const Companies = () => {
     return (
         <>
@@ -21,10 +21,14 @@ const Companies = () => {
                 </div>
                 <h1 className="companies_title">Bütün şirkətlər</h1>
                 <div className="companies_cards">
-                    <CompanyCard/>
-                    <CompanyCard/>
-                    <CompanyCard/>
-                    <CompanyCard/>
+                    <div className="companies_cards_item">
+                        <CompanyCard />
+                        <CompanyCard />
+                    </div>
+                    <div className="companies_cards_item">
+                        <CompanyCard />
+                        <CompanyCard />
+                    </div>
                 </div>
             </section>
         </>
