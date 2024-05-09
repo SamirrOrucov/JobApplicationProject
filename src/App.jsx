@@ -6,6 +6,9 @@ import NoPage from "./pages/NoPage/NoPage";
 import SignInPage from "./pages/SignInPage/SignInPage";
 import AdminLayout from "./layouts/AdminLayout/AdminLayout";
 import VacancyPage from "./pages/Admin/VacancyPage";
+import UsersPage from "./pages/Admin/UsersPage";
+import UserDetail from "./pages/Admin/UsersPage/UserDetail";
+import CompanyPage from "./pages/Admin/CompanyPage";
 function App() {
   return (
     <>
@@ -19,6 +22,9 @@ function App() {
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin/vacancy" element={<VacancyPage />} />
+            <Route path="/admin/users" element={<UsersPage />} />
+            <Route path="/admin/users/detail" element={<UserDetail />} />
+            <Route path="/admin/companies" element={<CompanyPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
