@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+
+    h1 {
+        font-size: 22px;
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+
+    }
+
+    .signin-content {
+        form {
+            .inputs {
+                user-select: none;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .input {
+                    border: 2px solid #0A65CC;
+                    height: 51.8px;
+                    width: 367px;
+                    border-radius: 10px;
+
+                    &:where(.css-dev-only-do-not-override-1okl62o).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+                        border-color: #ff4d4f !important;
+                    }
+
+                    input {
+                        padding-left: 7px;
+
+                        &::placeholder {
+                            color: #2d31a633;
+                        }
+                    }
+
+                    svg {
+                        font-size: 22px;
+                        color: #2d31a633;
+                    }
+                }
+            }
+
+            .text-input {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0 0px;
+
+                label {
+                    .ant-checkbox {
+                        user-select: none;
+
+                        &:where(.css-dev-only-do-not-override-1okl62o).ant-checkbox-checked .ant-checkbox-inner {
+                            border-color: #0851A3;
+                            background-color: #0851A3;
+                        }
+
+                        .ant-checkbox-inner {
+                            border-color: #0851A3;
+                            border-width: 1px;
+                            border-radius: 3px;
+                        }
+
+                    }
+
+                    span {
+                        font-family: "Montserrat", sans-serif;
+                        color: #71717A;
+                    }
+                }
+
+
+                a {
+                    font-family: "Montserrat", sans-serif;
+                    color: #0851A3;
+                    font-weight: 600;
+                }
+            }
+
+            button {
+                background-color: #0851A3;
+                height: 51.8px;
+                width: 367px;
+                border-radius: 10px;
+                font-weight: 600;
+                font-size: 17px;
+                letter-spacing: 0.5px;
+                display: block;
+                margin-top: 20px !important;
+            }
+
+            .have-acc {
+                text-align: center;
+                color: #71717A;
+                font-weight: 400;
+                font-family: "Montserrat", sans-serif;
+                padding-top: 20px;
+
+                a {
+                    color: #0851A3;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
