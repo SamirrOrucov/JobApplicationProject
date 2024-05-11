@@ -23,7 +23,7 @@ function App() {
             <Route path="/companies" element={<Companies />} />
             <Route path="/companies/detail" element={<CompaniesDetail />} />
             <Route path="/*" element={<NoPage />} />
-            <Route path="/profile" element={<UserInformationPage />} />
+            <Route path="/user-information" element={<UserInformationPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Route>
