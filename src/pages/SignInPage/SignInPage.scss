@@ -1,5 +1,15 @@
 #signin {
-  max-width: 100%;
- 
+  padding: 120px 0;
+
+  * {
+    max-width: 100%;
+    margin: 0;
+  }
 }
- 
+
+@media screen and (max-width: 460px) {
+  #signin {
+    padding: 100px 0;
+    max-width: 100% !important;
+  }
+}
