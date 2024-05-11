@@ -11,6 +11,7 @@ import VacancyPage from "./pages/Admin/VacancyPage";
 import UsersPage from "./pages/Admin/UsersPage";
 import UserDetail from "./pages/Admin/UsersPage/UserDetail";
 import CompanyPage from "./pages/Admin/CompanyPage";
+import Vacancy from "./pages/Vacancy";
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
             <Route path="/*" element={<NoPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/vacancies" element={<Vacancy/>}/>
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin/vacancy" element={<VacancyPage />} />
