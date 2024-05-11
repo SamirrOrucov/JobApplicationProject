@@ -16,8 +16,11 @@
           flex-direction: column;
           gap: 10px;
           color: #5E6670;
+          img {
+            cursor: pointer;
+          }
           h1 {
-            font-size: 27px;
+            font-size: 25px;
           }
           .footermenu {
             p {
@@ -26,11 +29,11 @@
           }
           h3 {
             font-weight: 400;
-            font-size: 16px;
+            font-size: 15.5px;
           }
           h4 {
             font-weight: 400;
-            font-size: 16px;
+            font-size: 15.5px;
           }
           img {
             width: 100px;

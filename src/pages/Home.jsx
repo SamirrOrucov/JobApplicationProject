@@ -1,10 +1,14 @@
 import React from "react";
+import FiltersComponents from "../components/HomePageComponents/FitlerCategory";
+import Sirketler from "../components/HomePageComponents/Sirketler";
+
 
 
 function Home() {
   return (
     <div>
-Home Page 
+      <FiltersComponents/>
+      <Sirketler/>
 
    </div>
   );
