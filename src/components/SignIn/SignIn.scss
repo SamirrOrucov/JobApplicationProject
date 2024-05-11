@@ -54,6 +54,9 @@
                 padding: 10px 0 0px;
 
                 label {
+                    display: flex;
+                    align-items: center;
+
                     .ant-checkbox {
                         user-select: none;
 
@@ -106,6 +109,69 @@
                 a {
                     color: #0851A3;
                     font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .signin-container {
+        gap: 70px;
+
+        h1 {
+            font-size: 18px;
+        }
+
+        .signin-content {
+            form {
+                .inputs {
+                    .input {
+                        height: 46px;
+                        width: 331px;
+
+                        input {
+                            &::placeholder {
+                                font-size: 13px;
+                            }
+                        }
+
+                        svg {
+                            font-size: 20px;
+                        }
+                    }
+                }
+
+                .text-input {
+                    padding: 8px 0 0px;
+
+                    label {
+                        span {
+                            font-size: 12px;
+                        }
+                    }
+
+                    a {
+                        font-size: 12px;
+                    }
+                }
+
+                button {
+                    height: 46px;
+                    width: 331px;
+                    margin-top: 15px !important;
+                    font-size: 15px;
+                }
+
+                .have-acc {
+                    font-size: 12px;
+                    padding-top: 15px;
+
+                    a {
+                        color: #0851A3;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
                 }
             }
         }

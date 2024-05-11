@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NoPage from "./pages/NoPage/NoPage";
 import SignInPage from "./pages/SignInPage/SignInPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="/*" element={<NoPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Route>
