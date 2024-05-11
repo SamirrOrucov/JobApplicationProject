@@ -1,0 +1,130 @@
+img {
+  width: 60px;
+}
+.moreVacancy {
+  display: none;
+}
+.seeMore {
+  display: block;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+  .card{
+    border: 1px solid rgb(231, 231, 231);
+    width: 500px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    .description{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h2{
+            font-size: 18px;
+        }
+    }
+    img{
+        width: 50px;
+    }
+}
+}
+
+#vacancies {
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0px;
+  .container {
+    width: 80%;
+    padding: 20px 40px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      flex-direction: column;
+      position: relative;
+      margin-bottom: 40px;
+      padding: 20px 0px;
+      .mainImage {
+        width: 770px;
+        height: 100px;
+        background-color: red;
+      }
+      .categoryImage {
+        position: absolute;
+        width: 100px;
+        border-radius: 50%;
+        left: 50px;
+        bottom: -20px;
+      }
+      h2 {
+        position: absolute;
+        left: 150px;
+        bottom: -30px;
+      }
+    }
+    h3 {
+      margin: 40px 0px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #2196f3;
+    }
+    .cards {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      .card {
+        border: 1px solid rgb(231, 231, 231);
+        width: 500px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 15px 30px;
+        border-radius: 15px;
+        .description {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          h2 {
+            font-size: 18px;
+          }
+        }
+        img {
+          width: 50px;
+        }
+      }
+    }
+
+    .moreButton{
+        display: flex;
+        align-self: center;
+        margin: 40px 0px;
+        padding: 15px 100px;
+        border-radius: 10px;
+        background-color: white;
+        color: #2196f3;
+        border: 1px solid #2196f3;
+        font-weight: 600;
+        transition: 300ms;
+        &:hover{
+            background-color: #2196f3;
+            color: white;
+        }
+    }
+  }
+}
