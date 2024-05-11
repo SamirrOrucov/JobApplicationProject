@@ -1,0 +1,60 @@
+#companiesDetail {
+    max-width: 80%;
+    margin: auto;
+
+    .companiesDetail_title {
+        margin: 30px 0px;
+        width: 135px;
+        padding-bottom: 2px;
+        border-bottom: 2px solid blue;
+    }
+
+    .companiesDetail_title_box {
+        padding: 20px 40px;
+        background-color: #0D1F61;
+        border-radius: 10px;
+        &_logo{
+            
+        }
+
+        &_title {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .company_search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background-color: white;
+            width: 200px;
+            padding: 5px;
+            border-radius: 5px;
+
+            &_icon {
+                // color: white;
+            }
+
+            &_input {
+                border: none;
+                outline: none;
+            }
+        }
+    }
+
+    .companiesDetail_cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        &_item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}

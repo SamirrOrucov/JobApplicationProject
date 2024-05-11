@@ -3,6 +3,8 @@ import MainLayout from "./layouts/MainLayout/MainLayout";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NoPage from "./pages/NoPage/NoPage";
+import Companies from "./pages/Companies/Companies";
+import CompaniesDetail from "./pages/Companies/CompaniesDetail/CompaniesDetail";
 import SignInPage from "./pages/SignInPage/SignInPage";
 import AdminLayout from "./layouts/AdminLayout/AdminLayout";
 import VacancyPage from "./pages/Admin/VacancyPage";
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
+            <Route path="/companies" element={<Companies />} />
+            <Route path="/companies/detail" element={<CompaniesDetail />} />
             <Route path="/*" element={<NoPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
