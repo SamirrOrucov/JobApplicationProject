@@ -1,0 +1,15 @@
+.containerCompanies{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &_button{
+        display: flex;
+        justify-content: end;
+    }
+}
+.companyIcon{
+    width: 60px;
+    height: 60px;
+
+}
