@@ -99,8 +99,7 @@ function index() {
           size="middle"
           style={{ textAlign: "center", paddingLeft: "50px" }}
         >
-          <Link to={"/admin/users/detail"}>Ətraflı</Link>
-          <a>Delete</a>
+           <a>Delete</a>
         </Space>
       ),
     },
