@@ -2,6 +2,7 @@ import React from "react";
 import "./Login.scss";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
+import { BsEnvelope, BsShieldSlash } from "react-icons/bs";
 const onFinish = (values) => {
   console.log("Success:", values);
 };
@@ -37,11 +38,19 @@ function Login() {
               rules={[
                 {
                   required: true,
-                  message: "Please input your email!",
+                  message: "Zəhmət olmasa e-mailinizi daxil edin!",
+                },
+                {
+                  type: "email",
+                  message: "E-mail düzgün deyil!",
                 },
               ]}
             >
-              <Input className="input" placeholder="Email" />
+              <Input
+                className="input"
+                prefix={<BsEnvelope />}
+                placeholder="E-mail"
+              />
             </Form.Item>
 
             <Form.Item
@@ -49,11 +58,16 @@ function Login() {
               rules={[
                 {
                   required: true,
-                  message: "Please input your password!",
+                  message: "Zəhmət olmasa şifrənizi daxil edin!",
                 },
+                { min: 8, message: "Şifrə ən az 8 simvoldan ibarət olmalıdır!" },
               ]}
             >
-              <Input.Password className="input" placeholder="Password" />
+              <Input.Password
+                className="input"
+                prefix={<BsShieldSlash />}
+                placeholder="Şifrə"
+              />
             </Form.Item>
           </div>
           <Form.Item
@@ -65,8 +79,8 @@ function Login() {
             }}
           >
             <div className="text-input">
-              <Checkbox>Remember me</Checkbox>
-              <Link to={"#"}>Forgot Password?</Link>
+              <Checkbox>Yadda saxla</Checkbox>
+              <Link to={"#"}>Şifrəni unutdum</Link>
             </div>
           </Form.Item>
 
@@ -77,10 +91,10 @@ function Login() {
             }}
           >
             <Button type="primary" htmlType="submit">
-              LOG IN
+              GİRİŞ
             </Button>
             <p className="have-acc">
-              Don’t have account? <Link to={"/sign-in"}>Create an account</Link>
+              Hesabınız yoxdur? <Link to={"/sign-in"}>Yeni hesab yaradın</Link>
             </p>
           </Form.Item>
         </Form>

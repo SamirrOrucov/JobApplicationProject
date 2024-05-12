@@ -5,14 +5,14 @@
   justify-content: center;
   padding: 50px 0px;
   .container {
-    width: 80%;
+    width: 1200px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 10px 0px;
     .name {
-      width: 80%;
+      width: 85%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -94,6 +94,53 @@
           border: none;
           font-weight: 600;
           border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1200px) {
+  #sirketler {
+    .container {
+      width: 960px;
+      .cards {
+        grid-template-columns: auto auto;
+        gap: 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width:970px) {
+  #sirketler {
+    .container {
+      width: 550px;
+      .cards {
+        grid-template-columns: auto;
+        gap: 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width:550px) {
+  #sirketler {
+    .container {
+      width: 320px;
+      .cards {
+        grid-template-columns: auto;
+        gap: 20px;
+        .card {
+          width: 300px;
+          min-height: 150px;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          flex-direction: column;
+          padding: 15px 20px;
+          border: 1px solid rgb(218, 218, 218);
+          border-radius: 8px;
+          gap: 10px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         }
       }
     }
