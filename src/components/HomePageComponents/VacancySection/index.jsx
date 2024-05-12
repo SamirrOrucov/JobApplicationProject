@@ -21,7 +21,7 @@ function VacancySection() {
                 <h4>Salary Azn</h4>
                 <h5>Job's Category</h5>
               </div>
-              <button>Daha Etrafli</button>
+              <button>Daha Ətraflı</button>
             </div>
             <div className="card">
               <div className="card_datas">
@@ -30,7 +30,7 @@ function VacancySection() {
                 <h4>1500-2000 Azn</h4>
                 <h5>Information Technologies</h5>
               </div>
-              <button>Daha Etrafli</button>
+              <button>Daha Ətraflı</button>
             </div>
           </div>
         </div>
