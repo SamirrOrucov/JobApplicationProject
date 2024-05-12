@@ -55,7 +55,7 @@ function index() {
       title: "Tarix",
       dataIndex: "createdAt",
       key: "createdAt",
-      width: 200,
+      width: 300,
 
       defaultSortOrder: "descend",
       sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
@@ -69,7 +69,7 @@ function index() {
       title: "Icon ",
       dataIndex: "image",
       key: "surname",
-      width: 200,
+      width: 300,
       render: (text, record) =><Space style={{alignItems:"center",paddingLeft:"50px"}}> <img className="companyIcon" src={text} /></Space>,
     },
     {
@@ -78,7 +78,7 @@ function index() {
       dataIndex: "name",
       key: "name",
       render: (text, record) => (
-        <Link to={"/admin/users/" + record.id}>{text}</Link>
+         text 
       ),
     },
 
@@ -86,7 +86,7 @@ function index() {
       title: "Vakansiya sayı",
       dataIndex: "vacancyCount",
       key: "email",
-      width: 200,
+      width: 300,
     },
 
     {
