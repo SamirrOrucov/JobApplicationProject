@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.scss";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 function Navbar() {
@@ -11,11 +11,11 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar_container">
         <nav>
-          <img src="https://amas.aztu.edu.az/assets/main/img/aztu_s.png" alt="" />
+          <Link to="/"><img src="https://amas.aztu.edu.az/assets/main/img/aztu_s.png" alt="" /></Link>
           <div className="menu">
-            <h3>İş Elanları</h3>
-            <h3>Şirkətlər</h3>
-            <h3>Müştəri Xidmətləri</h3>
+            <Link><h3>İş Elanları</h3></Link>
+            <Link to="/companies"><h3>Şirkətlər</h3></Link>
+            <Link><h3>Müştəri Xidmətləri</h3></Link>
           </div>
           <div className="login">
             <h4>Aliyev Ali</h4>

@@ -17,7 +17,7 @@ function Footer() {
             <div className="container">
               <h1>Quick Link</h1>
               <div className="footermenu">
-                <p>İş Elanları</p>
+              <Link to="/vacancies"><p>İş Elanları</p></Link>
                 <p>Şirkətlər</p>
                 <p>Müştəri Xidmətləri</p>
               </div>
