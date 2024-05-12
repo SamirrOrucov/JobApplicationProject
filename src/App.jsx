@@ -13,7 +13,7 @@ import NoPage from "./pages/NoPage/NoPage";
 import SignInPage from "./pages/SignInPage/SignInPage";
  
 import VacancyDetail from "./pages/VacancyDetail/VacancyDetail";
- 
+
 import Vacancy from "./pages/Vacancy";
 
 import UserInformationPage from "./pages/UserInformationPage/UserInformationPage";
@@ -33,6 +33,8 @@ import UserInformationPage from "./pages/UserInformationPage/UserInformationPage
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/vacancies" element={<Vacancy/>}/>
+            <Route path="/detail/:id" element={<VacancyDetail />} />
+
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin/vacancy" element={<VacancyPage />} />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./vacancy.scss";
+import { Link } from "react-router-dom";
 
 function Vacancies() {
   const [product, setProduct] = useState([]);
@@ -41,14 +42,16 @@ function Vacancies() {
 
           <div className="cards">
             {product.slice(0, 10).map((x) => (
-              <div className="card" key={x.id}>
-                <img src={x.image} alt="" />
-                <div className="description">
-                  <h2>{x.title}</h2>
-                  <p>Sirket adi</p>
-                  <p>Tarix</p>
+              <Link to={`/detail/${x.id}`}>
+                <div className="card" key={x.id}>
+                  <img src={x.image} alt="" />
+                  <div className="description">
+                    <h2>{x.title}</h2>
+                    <p>Sirket adi</p>
+                    <p>Tarix</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

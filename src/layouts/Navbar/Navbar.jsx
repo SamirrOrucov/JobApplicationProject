@@ -13,7 +13,7 @@ function Navbar() {
         <nav>
           <Link to="/"><img src="https://amas.aztu.edu.az/assets/main/img/aztu_s.png" alt="" /></Link>
           <div className="menu">
-            <h3>İş Elanları</h3>
+            <Link to="/vacancies"><h3>İş Elanları</h3></Link>
             <h3>Şirkətlər</h3>
             <h3>Müştəri Xidmətləri</h3>
           </div>
