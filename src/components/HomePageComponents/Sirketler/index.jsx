@@ -9,6 +9,9 @@ function Sirketler() {
         <div className="container">
           <div className="name">
             <h1>Şirkətlər</h1>
+            <Link>
+              View All <i className="fa-solid fa-arrow-right"></i>
+            </Link>
           </div>
           <div className="cards">
             <div className="card">
