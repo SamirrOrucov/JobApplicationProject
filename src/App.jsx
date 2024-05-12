@@ -11,6 +11,9 @@ import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NoPage from "./pages/NoPage/NoPage";
 import SignInPage from "./pages/SignInPage/SignInPage";
+
+import Vacancy from "./pages/Vacancy";
+
 import UserInformationPage from "./pages/UserInformationPage/UserInformationPage";
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
             <Route path="/user-information" element={<UserInformationPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/vacancies" element={<Vacancy/>}/>
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin/vacancy" element={<VacancyPage />} />

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.scss";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 function Navbar() {
@@ -11,7 +11,7 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar_container">
         <nav>
-          <img src="https://amas.aztu.edu.az/assets/main/img/aztu_s.png" alt="" />
+          <Link to="/"><img src="https://amas.aztu.edu.az/assets/main/img/aztu_s.png" alt="" /></Link>
           <div className="menu">
             <NavLink>İş Elanları</NavLink>
             <NavLink to={"/companies"}>Şirkətlər</NavLink>
