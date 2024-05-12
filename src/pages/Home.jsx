@@ -1,7 +1,7 @@
 import React from "react";
 import FiltersComponents from "../components/HomePageComponents/FitlerCategory";
 import Sirketler from "../components/HomePageComponents/Sirketler";
-import Vacancies from "../components/Vacancies";
+import VacancySection from "../components/HomePageComponents/VacancySection";
 
 
 
@@ -10,7 +10,7 @@ function Home() {
     <div>
       <FiltersComponents/>
       <Sirketler/>
-      <Vacancies/>
+      <VacancySection/>
    </div>
   );
 }

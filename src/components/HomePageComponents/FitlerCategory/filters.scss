@@ -4,13 +4,12 @@
   align-items: center;
   justify-content: center;
   padding: 40px 0px;
-  margin: 0;
   .container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 80%;
+    width: 1200px;
     gap: 20px;
     padding: 5px;
     .search {
@@ -48,7 +47,7 @@
     }
     .filter {
       background-color: #0d1f61;
-      width: 90%;
+      width: 100%;
       min-height: 80px;
       display: grid;
       grid-template-columns: auto auto auto auto auto;
@@ -67,6 +66,70 @@
   }
 }
 
+//responsivlik funksiyalar ucun
+
+@media screen and (max-width:1230px) {
+  #functions {
+    .container {
+      width: 960px;
+      .filter {
+        padding: 20px 0px;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width:960px) {
+  #functions {
+    .container {
+      width: 550px;
+      .filter {
+        grid-template-columns: auto auto;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width:550px) {
+  #functions {
+    .container {
+      width: 320px;
+      .search {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        border-radius: 15px;
+        .searching {
+          width: 80%;
+          i{
+            display: block;
+          }
+          input {
+            width: 70%;
+          }
+        }
+        i {
+          display: none;
+        }
+      }
+      .filter {
+        grid-template-columns: auto;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+
 #categories {
   max-width: 100vw;
   display: flex;
@@ -74,7 +137,7 @@
   justify-content: center;
   padding: 50px 0px;
   .container {
-    width: 80%;
+    width: 1200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,6 +200,45 @@
             color: #e7f0fa;
           }
         }
+      }
+    }
+  }
+}
+
+// responsivlik categoriyalar ucun
+@media screen and (max-width:1230px) {
+  #categories {
+    .container {
+      width: 960px;
+      .cards {
+        grid-template-columns: auto auto auto ;
+      }
+    }
+  }
+}
+@media screen and (max-width:960px) {
+  #categories {
+    .container {
+      width: 550px;
+      .name{
+        justify-content: center;
+      }
+      .cards {
+        grid-template-columns: auto auto;
+      }
+    }
+  }
+}
+@media screen and (max-width:560px) {
+  #categories {
+    .container {
+      width: 320px;
+      .name{
+        justify-content: center;
+      }
+      .cards {
+        grid-template-columns: auto;
+        justify-content: center;
       }
     }
   }

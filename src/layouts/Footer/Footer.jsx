@@ -19,7 +19,6 @@ function Footer() {
               <div className="footermenu">
                 <p>İş Elanları</p>
                 <p>Şirkətlər</p>
-                <p>Kategoriyalar</p>
                 <p>Müştəri Xidmətləri</p>
               </div>
             </div>
