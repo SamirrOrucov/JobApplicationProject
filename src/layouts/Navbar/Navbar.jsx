@@ -13,14 +13,13 @@ function Navbar() {
         <nav>
           <Link to="/"><img src="https://amas.aztu.edu.az/assets/main/img/aztu_s.png" alt="" /></Link>
           <div className="menu">
-            <NavLink>İş Elanları</NavLink>
-            <NavLink to={"/companies"}>Şirkətlər</NavLink>
-            <NavLink>Kategoriyalar</NavLink>
-            <NavLink>Müştəri Xidmətləri</NavLink>
+            <h3>İş Elanları</h3>
+            <h3>Şirkətlər</h3>
+            <h3>Müştəri Xidmətləri</h3>
           </div>
           <div className="login">
-            <h4>Sign In</h4>
-            <h4 className="loginbtn">Log In</h4>
+            <h4>Aliyev Ali</h4>
+            <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png" alt="" />
           </div>
         </nav>
       </div>

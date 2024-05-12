@@ -7,7 +7,7 @@
       align-items: center;
       color: #212944;
       font-size: 14px;
-      padding:20px 100px;
+      padding:20px 120px;
       justify-content: space-between;
       img {
         width: 60px;
@@ -31,11 +31,9 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 10px;
+        gap: 14px;
         h4 {
-          border: 1px solid #CEE0F5;
-          padding: 10px 0;
-          color: #0A65CC;
+          color: black;
           width: 100px;
           display: flex;
           justify-content: center;
@@ -44,18 +42,14 @@
           cursor: pointer;
           transition: 300ms;
           &:hover {
-            background-color: #0A65CC;
-            color: white;
+            color: #0A65CC;
             
           }
         }
-        .loginbtn{
-          background-color: #0A65CC;
-          color: white;
-          &:hover {
-            background-color: white;
-            color: #0A65CC;
-          }
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
         }
       }
     }
