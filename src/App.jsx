@@ -24,7 +24,7 @@ function App() {
             <Route path="/companies/detail" element={<CompaniesDetail />} />
             <Route path="/*" element={<NoPage />} />
             <Route path="/user-information" element={<UserInformationPage />} />
-            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/register" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
