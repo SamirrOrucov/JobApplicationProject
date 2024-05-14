@@ -12,7 +12,7 @@
   "dependencies": {
     "antd": "^5.17.0",
     "antd-phone-input": "^0.3.7",
-    "dayjs": "^1.11.11
+    "dayjs": "^1.11.11",
     "axios": "^1.6.8",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
