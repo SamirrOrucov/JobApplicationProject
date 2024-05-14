@@ -1,11 +1,267 @@
-import React from 'react'
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button, Col, Row, Space, Table } from "antd";
+import axios from "axios";
+import { ADMIN_TOKEN, BASE_URL } from "../../../constants/base";
+import "./style.scss"
 function index() {
+  const [vacancy, setVacancy] = useState([]);
+  const user = [
+    {
+      id: "2142332512",
+      name: "Kapital Bank",
+      vacancyCount: "23",
+      category: {
+        name: "Informasiyasiya Texnologiyaları",
+      },
+      company: {
+        name: "Kapital Bank",
+        logo: "data:image/png;base64,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",
+      },
+      vacancyDetail: {
+        position: "Helpdesk",
+        city: "Bakı",
+        salary: 345.0,
+        age: 18,
+        education: "Bakalavr",
+        jobExperience: "0-1 il",
+        relevantPerson: "Samir Orucov",
+        candidateRequirements: "18-21 yaş arası təcrübəçilər axtarırıq.",
+        jobInformation:
+          "İş İT tələbələri üçündür.Kompyuterlərin daxili sistemlərinə nəzarət etmək üçün yeni internlər axtarırıq.",
+        email: "samir@gmail.com",
+        contactNumber: "0555555555",
+      },
+      createdAt: "09.05.2024",
+    },
+    {
+      id: "2142332512",
+      name: "Kapital Bank",
+      vacancyCount: "23",
+      category: {
+        name: "Informasiyasiya Texnologiyaları",
+      },
+      company: {
+        name: "Kapital Bank",
+        logo: "data:image/png;base64,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",
+      },
+      vacancyDetail: {
+        position: "Helpdesk",
+        city: "Bakı",
+        salary: 345.0,
+        age: 18,
+        education: "Bakalavr",
+        jobExperience: "0-1 il",
+        relevantPerson: "Samir Orucov",
+        candidateRequirements: "18-21 yaş arası təcrübəçilər axtarırıq.",
+        jobInformation:
+          "İş İT tələbələri üçündür.Kompyuterlərin daxili sistemlərinə nəzarət etmək üçün yeni internlər axtarırıq.",
+        email: "samir@gmail.com",
+        contactNumber: "0555555555",
+      },
+      createdAt: "09.05.2024",
+    },
+    {
+      id: "2142332512",
+      name: "Kapital Bank",
+      vacancyCount: "23",
+      category: {
+        name: "Informasiyasiya Texnologiyaları",
+      },
+      company: {
+        name: "Kapital Bank",
+        logo: "data:image/png;base64,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",
+      },
+      vacancyDetail: {
+        position: "Helpdesk",
+        city: "Bakı",
+        salary: 345.0,
+        age: 18,
+        education: "Bakalavr",
+        jobExperience: "0-1 il",
+        relevantPerson: "Samir Orucov",
+        candidateRequirements: "18-21 yaş arası təcrübəçilər axtarırıq.",
+        jobInformation:
+          "İş İT tələbələri üçündür.Kompyuterlərin daxili sistemlərinə nəzarət etmək üçün yeni internlər axtarırıq.",
+        email: "samir@gmail.com",
+        contactNumber: "0555555555",
+      },
+      createdAt: "09.05.2024",
+    },
+    {
+      id: "2142332512",
+      name: "Kapital Bank",
+      vacancyCount: "23",
+      category: {
+        name: "Informasiyasiya Texnologiyaları",
+      },
+      company: {
+        name: "Kapital Bank",
+        logo: "data:image/png;base64,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",
+      },
+      vacancyDetail: {
+        position: "Helpdesk",
+        city: "Bakı",
+        salary: 345.0,
+        age: 18,
+        education: "Bakalavr",
+        jobExperience: "0-1 il",
+        relevantPerson: "Samir Orucov",
+        candidateRequirements: "18-21 yaş arası təcrübəçilər axtarırıq.",
+        jobInformation:
+          "İş İT tələbələri üçündür.Kompyuterlərin daxili sistemlərinə nəzarət etmək üçün yeni internlər axtarırıq.",
+        email: "samir@gmail.com",
+        contactNumber: "0555555555",
+      },
+      createdAt: "09.05.2024",
+    },
+    {
+      id: "2142332512",
+      name: "Kapital Bank",
+      vacancyCount: "23",
+      category: {
+        name: "Informasiyasiya Texnologiyaları",
+      },
+      company: {
+        name: "Kapital Bank",
+        logo: "data:image/png;base64,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",
+      },
+      vacancyDetail: {
+        position: "Helpdesk",
+        city: "Bakı",
+        salary: 345.0,
+        age: 18,
+        education: "Bakalavr",
+        jobExperience: "0-1 il",
+        relevantPerson: "Samir Orucov",
+        candidateRequirements: "18-21 yaş arası təcrübəçilər axtarırıq.",
+        jobInformation:
+          "İş İT tələbələri üçündür.Kompyuterlərin daxili sistemlərinə nəzarət etmək üçün yeni internlər axtarırıq.",
+        email: "samir@gmail.com",
+        contactNumber: "0555555555",
+      },
+      createdAt: "09.05.2024",
+    },
+  ];
+  const columns = [
+    {
+      title: "Tarix",
+      dataIndex: "createdAt",
+      key: "createdAt",
+      width: 200,
+
+      defaultSortOrder: "descend",
+      sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
+      render: (text, record) =>
+        record.createdAt.slice(11, 16) +
+        " " +
+        " " +
+        record.createdAt.slice(0, 10),
+    },
+    {
+      title: "Vakansiya",
+      dataIndex: "vacancyDetail",
+      key: "vakasiya",
+      width: 200,
+      render: (text, record) => text.position,
+    },
+    {
+      title: "Kateqoriya",
+      dataIndex: "category",
+      width: 300,
+      key: "name",
+      render: (text, record) => text.name,
+    },
+
+    {
+      title: "Şirkət",
+      dataIndex: "company",
+      key: "email",
+      width: 200,
+      render: (text, record) => <Space>
+        <img className="companyLogo" src={text.logo} alt="" />
+        <Link to={"/admin/companies"}>{text.name}</Link>
+        </Space>
+    },
+    {
+      title: "Təhsil",
+      dataIndex: "vacancyDetail",
+      key: "email",
+      width: 300,
+      render: (text) => text.education,
+    },
+    {
+      title: "Maaş",
+      dataIndex: "vacancyDetail",
+      key: "email",
+       render: (text) => text.salary,
+    }, {
+      title: "Təcrübə",
+      dataIndex: "vacancyDetail",
+      key: "email",
+      width: 200,
+      render: (text) => text.jobExperience,
+    },
+    {
+      title: "Action",
+      key: "action",
+      width: 150,
+
+      render: (_, record) => (
+        <Space
+          size="middle"
+        >
+          <a >Edit</a>
+          <a>Delete</a>
+        </Space>
+      ),
+    },
+  ];
+  function getVacancies() {
+    axios
+      .get(BASE_URL + "/admins/vacancy", {
+        headers: {
+          Authorization: "Bearer " + ADMIN_TOKEN,
+        },
+      })
+      .then((response) => {
+        // Handle success
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
+  }
+
+  useEffect(() => {
+    getVacancies();
+  }, []);
+
   return (
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad autem, sequi culpa tenetur sed, tempore iste eaque cumque repellat placeat reiciendis quaerat quos deleniti tempora hic. Accusamus blanditiis quae sequi ut earum minus cumque ea, illum officia quibusdam et velit qui molestias at ratione ipsam laboriosam illo optio. At autem officiis est! Eligendi similique recusandae reiciendis fugiat, sint quos atque ducimus eveniet praesentium exercitationem voluptatibus, non molestias distinctio maiores, quasi aperiam ut quis? Modi iure deserunt consectetur necessitatibus quam cum dolor consequuntur nostrum optio assumenda! Tempora recusandae eligendi, aperiam voluptas nemo debitis sequi voluptatum eum odio perferendis. Quidem aliquid quae omnis vero sunt, dignissimos labore deleniti iste ipsum ullam, magnam ad est totam itaque qui ab quia eius praesentium eos quasi libero? Amet doloremque provident rerum perferendis eveniet ad aspernatur quas repudiandae incidunt? Tenetur cumque nihil eligendi quam dolores labore expedita ad maxime, minus quo, modi voluptatem hic officia, nesciunt molestiae. Nam, culpa maiores praesentium, ea labore cupiditate eveniet consequuntur laudantium modi obcaecati neque ab? Adipisci ullam dolore voluptatum nisi, nesciunt quod temporibus perspiciatis nam, debitis autem quae magnam eum neque? Velit officiis, enim et, iusto deleniti laborum exercitationem, repellat atque architecto numquam error! Laudantium dicta neque reiciendis, accusantium, amet necessitatibus eum in est laboriosam vero ducimus a molestias commodi, quis ipsum. Fugiat voluptate quae nemo similique iste, minima dicta, laborum ex perferendis accusantium saepe, beatae distinctio aspernatur ipsum mollitia molestiae! Voluptatibus sed architecto vero quisquam quae odio consectetur repudiandae necessitatibus. Totam eos nobis numquam aut animi. Amet similique tenetur dolor vel harum repellat culpa est, perspiciatis aut, maiores soluta reiciendis, autem labore illum perferendis maxime laboriosam ex nostrum vitae repellendus. Exercitationem numquam facere natus blanditiis pariatur quas, consequuntur voluptate nobis laborum? Quisquam consequuntur non inventore impedit suscipit magnam voluptatibus laborum repellat delectus tempore exercitationem possimus nulla excepturi natus, unde neque assumenda officiis? Modi ex harum saepe ea recusandae repudiandae ut asperiores blanditiis, sapiente nemo, culpa iste laudantium cupiditate velit quasi labore voluptas, accusamus accusantium! Magni voluptas tempore alias placeat earum hic voluptates dolore beatae ipsam fuga numquam, esse veritatis delectus ipsa quo laudantium sequi quidem harum cumque dolor quibusdam debitis, ducimus asperiores quas. In impedit sint animi rerum perferendis sequi neque provident tempora, ipsam fuga, atque laboriosam necessitatibus. Beatae facilis eveniet sapiente ratione corrupti? Est unde architecto distinctio laborum, error repudiandae dignissimos, nostrum molestiae, excepturi maiores perferendis? Consectetur fuga accusamus blanditiis harum esse dignissimos dolore neque impedit magnam possimus eveniet corrupti nesciunt illum quos, molestias molestiae ea nemo vero? Est, distinctio nobis perferendis tempora rerum incidunt error non ullam architecto, praesentium eius itaque facilis labore aliquid voluptatem veniam! Ea tenetur earum, perferendis distinctio dolore illum eos vitae deleniti. Deleniti veniam harum animi, non iure dolore dicta eveniet doloribus fuga officia quidem consectetur vero facere tenetur doloremque architecto earum alias consequuntur nam provident sint. Amet voluptate ullam commodi modi omnis, dolorem explicabo debitis hic, eaque voluptatibus iure placeat vel ratione in! Possimus aliquid rem dolorem alias iusto repellendus culpa et, molestiae, quas soluta odio consequatur, corporis vel tenetur nobis nesciunt animi. Exercitationem cumque maiores sit deserunt illo, inventore magni. Hic blanditiis quos debitis, autem cumque libero quibusdam maxime voluptatem odit facilis inventore porro modi expedita quaerat a! Nihil animi deserunt, illum reiciendis autem molestias. Reprehenderit nihil ad alias facilis dolore autem unde cum sunt dolorem sit, saepe, totam nesciunt ipsa itaque voluptatem voluptate molestiae dolorum laboriosam omnis voluptas illum. Doloribus voluptatibus et exercitationem, aliquid obcaecati, dignissimos facere officiis doloremque cupiditate corrupti temporibus pariatur enim vitae nostrum ullam cum quae aliquam. Nam rem sint totam expedita tempora. Saepe architecto similique voluptatibus. Tempore ab temporibus dicta voluptate necessitatibus porro labore illum iusto amet animi sequi iure, adipisci vel inventore at nesciunt exercitationem repudiandae? Alias corporis debitis temporibus, fuga nesciunt culpa soluta doloremque dolores, rerum accusantium laboriosam repudiandae? Molestiae pariatur quasi voluptatibus voluptates beatae placeat vero eaque autem voluptate dolorem modi temporibus provident, excepturi aliquid quia totam quam minima itaque libero suscipit dignissimos, ut ipsam cum sit. Aliquid ducimus quod sed explicabo nostrum a vero illo, non quaerat dicta, in voluptatum asperiores itaque quibusdam atque temporibus rerum rem, iure quisquam aperiam cupiditate ipsam debitis culpa tenetur. Consequuntur alias culpa, id eveniet, odit autem incidunt repellat similique odio eius quisquam, nisi ullam et quasi vel quia accusantium! Debitis quos blanditiis, voluptate perspiciatis sit doloremque, dolorum dignissimos, dolor ipsam facere libero repellendus quod minus nemo ex amet minima aperiam accusantium repudiandae odio asperiores tempore illum incidunt autem. Cum voluptatem laudantium sequi sit autem sint aspernatur ipsam enim. Quo cumque corrupti fuga ipsam labore neque quia, consectetur tempore deserunt necessitatibus, obcaecati dolore ea recusandae commodi illum exercitationem magnam, et at odio ipsa maxime adipisci earum assumenda! Tenetur quia quod deserunt aut doloremque, quas officia voluptatum reiciendis, fugiat, minus placeat sunt nulla molestias magni cumque quis? Quisquam, quia consequatur nisi reiciendis nihil quibusdam incidunt fuga facere sit enim. Beatae dolores omnis adipisci veniam ullam praesentium, amet porro libero enim esse tempore consequuntur eos ad minima atque eveniet nesciunt saepe officia veritatis quod debitis, rem deleniti magnam! Doloribus saepe dignissimos vitae ipsa deserunt quasi possimus rem, nisi assumenda magni repudiandae vel error sequi, delectus necessitatibus placeat? Nesciunt, dolore. Aliquam unde sunt saepe nemo voluptatem inventore cum pariatur, amet similique, at quidem ducimus, exercitationem nam deserunt consectetur blanditiis magni animi cumque eum modi! Deleniti illo unde recusandae minima soluta praesentium repudiandae, autem similique dolor suscipit reprehenderit maiores excepturi totam iure laborum ratione veritatis harum quod vero delectus enim necessitatibus incidunt. Sapiente similique odio atque earum ut? Molestiae fugiat temporibus atque ad excepturi. Accusamus, doloribus nulla voluptatum, neque distinctio molestias corporis sit hic aliquid eaque asperiores, adipisci provident doloremque sequi. Ducimus sapiente commodi non eum ea tempora molestias doloremque eos cumque error, quam sit voluptate sunt dolores incidunt alias inventore esse optio nam hic recusandae officiis, dolor autem aut. Laborum alias magnam possimus! Rem mollitia dolore, voluptas odit sequi eveniet dolores quas adipisci odio, enim exercitationem explicabo, iste sapiente beatae quisquam itaque recusandae repellendus! Iusto corrupti officia labore doloremque voluptatum consectetur voluptatem, quod autem fuga iure inventore, quidem blanditiis omnis.
+    <div className="articleRequests">
+      <div className="articleRequests_container">
+        <Row className="containerCompanies">
+          <Col span={24}>
+            <Row className="containerCompanies_button">
+              <Col span={2}>
+                <Button>Şirkət əlavə et</Button>
+              </Col>
+            </Row>
+          </Col>
+          <Col span={24} className="tableContainer ">
+            <Table
+              className="table"
+              bordered={true}
+              columns={columns}
+              dataSource={user}
+              rowKey="_id"
+            />
+          </Col>
+        </Row>
+      </div>
     </div>
-  )
+  );
 }
 
-export default index
+export default index;

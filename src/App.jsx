@@ -11,9 +11,14 @@ import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NoPage from "./pages/NoPage/NoPage";
 import SignInPage from "./pages/SignInPage/SignInPage";
+ 
+import VacancyDetail from "./pages/VacancyDetail/VacancyDetail";
+
+import Vacancy from "./pages/Vacancy";
+
 import UserInformationPage from "./pages/UserInformationPage/UserInformationPage";
 
-function App() {
+ function App() {
   return (
     <>
       <BrowserRouter>
@@ -22,10 +27,14 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/companies" element={<Companies />} />
             <Route path="/companies/detail" element={<CompaniesDetail />} />
+            <Route path="/vacancy/detail" element={<VacancyDetail />} />
             <Route path="/*" element={<NoPage />} />
             <Route path="/user-information" element={<UserInformationPage />} />
             <Route path="/register" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/vacancies" element={<Vacancy/>}/>
+            <Route path="/detail/:id" element={<VacancyDetail />} />
+
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin/vacancy" element={<VacancyPage />} />
