@@ -245,7 +245,7 @@ function index() {
           <Col span={24}>
             <Row className="containerCompanies_button">
               <Col span={2}>
-                <Button>Vakansiya əlavə et</Button>
+                <Button><Link to={"add"}>Vakansiya əlavə et</Link></Button>
               </Col>
             </Row>
           </Col>
