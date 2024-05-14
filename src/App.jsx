@@ -30,7 +30,7 @@ import UserInformationPage from "./pages/UserInformationPage/UserInformationPage
             <Route path="/vacancy/detail" element={<VacancyDetail />} />
             <Route path="/*" element={<NoPage />} />
             <Route path="/user-information" element={<UserInformationPage />} />
-            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/register" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/vacancies" element={<Vacancy/>}/>
             <Route path="/detail/:id" element={<VacancyDetail />} />
