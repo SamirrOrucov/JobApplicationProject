@@ -1,14 +1,10 @@
-import { Button, DatePicker, Form, Input, Select } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, DatePicker, Form, Image, Input, Select, Upload } from "antd";
 import PhoneInput from "antd-phone-input";
 import React, { useState } from "react";
+import { BiMap } from "react-icons/bi";
+import { BsHouseDoor, BsPerson } from "react-icons/bs";
 const { Option } = Select;
-import { PlusOutlined } from "@ant-design/icons";
-import { Image, Upload } from "antd";
-import { BsHouse, BsHouseDoor, BsPerson } from "react-icons/bs";
-import { CiMap } from "react-icons/ci";
-import { BiHome, BiHomeAlt, BiHomeAlt2, BiMap, BiMapPin } from "react-icons/bi";
-import { FaMapLocation } from "react-icons/fa6";
-import { FaMapMarker, FaMapMarkerAlt } from "react-icons/fa";
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -184,8 +180,8 @@ function UserInfoForm({ initialValues, onFinish }) {
             ]}
           >
             <Select placeholder="Cinsiniz" className="input-select">
-              <Option value="1">Kişi</Option>
-              <Option value="2">Qadın</Option>
+              <Option value={1}>Kişi</Option>
+              <Option value={2}>Qadın</Option>
             </Select>
           </Form.Item>
         </div>
@@ -201,8 +197,8 @@ function UserInfoForm({ initialValues, onFinish }) {
             ]}
           >
             <Select placeholder="Mədəni halınız" className="input-select">
-              <Option value="1">Evli</Option>
-              <Option value="2">Subay</Option>
+              <Option value={1}>Evli</Option>
+              <Option value={2}>Subay</Option>
             </Select>
           </Form.Item>
 
@@ -220,11 +216,11 @@ function UserInfoForm({ initialValues, onFinish }) {
               placeholder="Hərbi mükəlləfiyyətiniz"
               className="input-select"
             >
-              <Option value="1">Var</Option>
-              <Option value="2">Yoxdur</Option>
-              <Option value="3">Hərbi xidmətə yollanıram</Option>
-              <Option value="4">Müvəqqəti olaraq getmirəm</Option>
-              <Option value="5">Digər</Option>
+              <Option value={1}>Var</Option>
+              <Option value={2}>Yoxdur</Option>
+              <Option value={3}>Hərbi xidmətə yollanıram</Option>
+              <Option value={4}>Müvəqqəti olaraq getmirəm</Option>
+              <Option value={5}>Digər</Option>
             </Select>
           </Form.Item>
         </div>
