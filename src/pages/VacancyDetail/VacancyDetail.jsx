@@ -24,6 +24,62 @@ const VacancyDetail = () => {
               <p className="vacancyDetail_box_content_text">Kapital Bank</p>
             </div>
           </div>
+
+          <div className="vacancyDetail">
+            <h2>İŞ MƏLUMATLARI</h2>
+            <div className="cards">
+              <div className="card">
+                <i className="fa-solid fa-location-dot"></i>
+                <div className="info">
+                  <h6>Baki</h6>
+                  <p>Şəhər</p>
+                </div>
+              </div>
+              <div className="card">
+              <i className="fa-regular fa-file-lines"></i>
+                <div className="info">
+                  <h6>İngilis dili müəllimi</h6>
+                  <p>Vəzifə</p>
+                </div>
+              </div>
+              <div className="card">
+              <i className="fa-solid fa-briefcase"></i>
+                <div className="info">
+                  <h6>1 ildən 3 ilə qədər</h6>
+                  <p>İş stajı</p>
+                </div>
+              </div>
+              <div className="card">
+              <i className="fa-solid fa-money-bill"></i>
+                <div className="info">
+                  <h6>400 - 600 AZN</h6>
+                  <p>Əmək haqqı AZN</p>
+                </div>
+              </div>
+              <div className="card">
+              <i className="fa-solid fa-user-tie"></i>
+                <div className="info">
+                  <h6>20-25</h6>
+                  <p>Age</p>
+                </div>
+              </div>
+              <div className="card">
+              <i className="fa-solid fa-user-graduate"></i>
+                <div className="info">
+                  <h6>Ali Mektebi bitirmis</h6>
+                  <p>Education</p>
+                </div>
+              </div>
+              <div className="card">
+              <i className="fa-solid fa-user-graduate"></i>
+                <div className="info">
+                  <h6>1-2 illik tecrube</h6>
+                  <p>jobExperience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="vacancyDetail_box">
             <h3>İş barədə məlumat</h3>
             <p className="info">

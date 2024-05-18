@@ -16,11 +16,11 @@
             border-radius: 5px;
             border: 1px solid #e5e5e5;
             background-color: #fff;
-            width: 100%;
+            width: 70%;
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-
+            align-self: start;
             &_content {
                 &_title {
                     color: black;
@@ -34,8 +34,62 @@
                 }
             }
         }
+
+        .vacancyDetail{
+            width: 70%;
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            flex-direction: column;
+            align-self: start;
+            gap: 15px;
+            border-radius: 5px;
+            border: 1px solid #e5e5e5;
+            background-color: #fff;
+            padding: 30px 20px 80px 60px;
+            margin: 20px 0px;
+            h2{
+                color: #2196F3;
+                padding-left: 16px;
+                border-left: 7px solid #2196F3;
+                font-size: 18px;
+            }
+            .cards{
+                width: 100%;
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 20px;
+                .card{
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    padding: 5px 20px;
+                    gap: 15px;
+                    i{
+                        padding: 7px;
+                        background-color: #f4f6f9;
+                        color: #8a8080;
+                        font-size: 18px;
+                        border-radius: 5px;
+                    }
+                    .info{
+                        h6{
+                            font-weight: normal;
+                            text-decoration: underline;
+                            cursor: pointer;
+                            font-size: 15px;
+                        }
+                        p{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
         .vacancyDetail_box{
-            width: 100%;
+            width: 70%;
+            align-self: start;
             display: flex;
             align-items: start;
             justify-content: center;
@@ -52,10 +106,9 @@
             }
             .info{
                 font-size: 18px;
-                letter-spacing: 1px;
             }
             h2{
-                font-size: 24px;
+                font-size: 22px;
                 margin-bottom: 20px;
             }
             .ohdelikler{
@@ -67,7 +120,7 @@
                     flex-direction: column;
                     gap: 10px;
                     li{
-                        font-size: 17px; 
+                        font-size: 16px; 
                         list-style: circle;
                     }
                 }
@@ -81,7 +134,7 @@
                     flex-direction: column;
                     gap: 10px;
                     li{
-                        font-size: 17px; 
+                        font-size: 16px; 
                         list-style: lower;
                     }
                 }
@@ -95,7 +148,7 @@
                     flex-direction: column;
                     gap: 10px;
                     li{
-                        font-size: 17px; 
+                        font-size: 16px; 
                         list-style: square;
                     }
                 }
