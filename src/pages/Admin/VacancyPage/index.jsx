@@ -218,8 +218,9 @@ function index() {
     },
   ];
   function getVacancies() {
-    axios
-      .get(BASE_URL + "/user-informations/soft-skills", {
+     axio
+      .get(BASE_URL + "/admins/vacancy", {
+ 
         headers: {
           Authorization: "Bearer " + ADMIN_TOKEN,
         },
