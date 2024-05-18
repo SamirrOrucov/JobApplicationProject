@@ -13,9 +13,11 @@ function Navbar() {
         <nav>
           <Link to="/"><img src="https://amas.aztu.edu.az/assets/main/img/aztu_s.png" alt="" /></Link>
           <div className="menu">
+ 
             <Link><h3>İş Elanları</h3></Link>
             <Link to="/companies"><h3>Şirkətlər</h3></Link>
             <Link><h3>Müştəri Xidmətləri</h3></Link>
+ 
           </div>
           <div className="login">
             <h4>Aliyev Ali</h4>

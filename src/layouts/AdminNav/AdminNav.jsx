@@ -9,7 +9,6 @@ function AdminNav() {
   return (
     <div className="adminNav">
       <div className="adminNavContainer">
-       
         <div className="adminNav_sidebar">
           <div className="adminNav_link">
             <NavLink to="/admin/vacancy">
@@ -20,7 +19,7 @@ function AdminNav() {
               <i className="fa-solid fa-chart-line"></i>
               Şirkətlər
             </NavLink>
-            
+
             <NavLink to="/admin/users">
               <FaUser />
               İstifadəçilər

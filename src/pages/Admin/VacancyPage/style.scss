@@ -1,0 +1,10 @@
+.companyLogo{
+    width: 50px;
+    object-fit: cover;
+}
+.articleRequests{
+    max-width: 100vw;
+    &_container{
+        max-width: 80vw;
+    }
+}

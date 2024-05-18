@@ -2,7 +2,7 @@ import React from 'react'
 import { Breadcrumb } from 'antd';
 import "./Companies.scss";
 import { IoSearchSharp } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import CompanyCard from '../../components/CompanyPageComponents/CompanyCard/CompanyCard';
 const Companies = () => {
     return (
@@ -10,8 +10,8 @@ const Companies = () => {
             <section id='companies'>
                 <div className="companies_title_box">
                     <div className="companies_title_box_links">
-                        <Link to={"/"} className="companies_title_box_link">Əsas səhifə  /</Link>
-                        <Link className="companies_title_box_lin"> Şirkətlər</Link>
+                        <NavLink to={"/"} className="companies_title_box_link">Əsas səhifə  /</NavLink>
+                        <NavLink className="companies_title_box_lin"> Şirkətlər</NavLink>
                     </div>
                     <h1 className="companies_title_box_title">Şirkətlər</h1>
                     <div className="company_search">

@@ -8,13 +8,15 @@ const CompaniesDetail = () => {
         <>
             <section id='companiesDetail'>
                 <div className="companiesDetail_title_box">
-                    <div className='className="companiesDetail_title_box_logo"'>
-                        <img src="../../../../public/kapital_bank_logo.svg" alt="" />
+                    <div className='companiesDetail_title_box_content'>
+                        <div className='companiesDetail_title_box_content_logo'>
+                            <img src="../../../../public/kapital_bank_logo.svg" alt="" />
+                        </div>
+                        <h1 >Kapital Bank</h1>
                     </div>
-                    <h1 className="companiesDetail_title_box_title">Şirkətlər</h1>
                     <div className="company_search">
                         <IoSearchSharp className="company_search_icon" />
-                        <input className="company_search_input" type="text" placeholder="Şirkət axtar" />
+                        <input className="company_search_input" type="text" placeholder="Vakansiya axtar" />
                     </div>
                 </div>
                 <div className='companiesDetail_title' >
