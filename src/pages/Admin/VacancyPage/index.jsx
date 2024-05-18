@@ -218,11 +218,11 @@ function index() {
     },
   ];
   function getVacancies() {
-     axio
-      .get(BASE_URL + "/admins/vacancy", {
+     axios
+      .get(`${BASE_URL}admins/vacancy`, {
  
         headers: {
-          Authorization: "Bearer " + ADMIN_TOKEN,
+          Authorization:  `Bearer ${ADMIN_TOKEN}`
         },
       })
       .then((response) => {
