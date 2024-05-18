@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./vacancySection.scss";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../../constants/base";
+import axios from "axios";
 
 function VacancySection() {
+  const [company, setCompany] = useState([]);
+
+  function getVacancies() {
+    axios
+      .get(`${BASE_URL}admins/vacancy`, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sInN1YiI6Im5paGF0QGRpdi5lZHUuYXoiLCJqdGkiOiIxIiwiaWF0IjoxNzE2MDU1Njk1LCJleHAiOjE3MTYwNjQ2OTV9.wGuCvimwmhOpE53tG91BgcA69kbFmAZ-60vFKp-CLLY",
+        },
+      })
+      .then((response) => {
+        // Handle success
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
+  }
+
+  useEffect(() => {
+    getVacancies();
+  }, []);
+
   return (
     <div>
       <section id="vacancy">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./VacancyDetail.scss";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const VacancyDetail = () => {
   const { id } = useParams();
@@ -125,7 +126,9 @@ const VacancyDetail = () => {
                 <li>LifeStyle</li>
               </ul>
             </div>
+            <Link to="/vacancyApply">
             <button>Apply</button>
+            </Link>
           </div>
 
         </div>
