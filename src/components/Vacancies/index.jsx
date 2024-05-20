@@ -25,11 +25,7 @@ function Vacancies() {
       <div id="vacancies">
         <div className="container">
           <div className="header">
-            <img
-              className="mainImage"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdY4Uv9JKnO0Yf4xxK-cGgJrvjBxH-wlGfkw&usqp=CAU"
-              alt=""
-            />
+            <div className="mainImage"></div>
             <img
               className="categoryImage"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsDzT4ChP0uonxPmqq3EQiDLs9sLqcwybgCQ&usqp=CAU"
@@ -42,7 +38,7 @@ function Vacancies() {
 
           <div className="cards">
             {product.slice(0, 10).map((x) => (
-              <Link to={`/detail/${x.id}`}>
+              <Link to={`/vacancyDetail/${x.id}`}>
                 <div className="card" key={x.id}>
                   <img src={x.image} alt="" />
                   <div className="description">
@@ -64,6 +60,7 @@ function Vacancies() {
 
           <div className={display ? "moreVacancy" : "seeMore"}>
             {product.slice(5, product.length).map((x) => (
+              <Link to={`/vacancyDetail/${x.id}`}>
               <div className="card" key={x.id}>
                 <img src={x.image} alt="" />
                 <div className="description">
@@ -72,6 +69,7 @@ function Vacancies() {
                   <p>Tarix</p>
                 </div>
               </div>
+            </Link>
             ))}
           </div>
         </div>

@@ -18,6 +18,7 @@ import VacancyDetail from "./pages/VacancyDetail/VacancyDetail";
 import Vacancy from "./pages/Vacancy";
 
 import UserInformationPage from "./pages/UserInformationPage/UserInformationPage";
+import VacancyApply from "./pages/VacancyApply";
 
 function App() {
   return (
@@ -33,8 +34,10 @@ function App() {
             <Route path="/user-information" element={<UserInformationPage />} />
             <Route path="/register" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/vacancies" element={<Vacancy />} />
-            <Route path="/detail/:id" element={<VacancyDetail />} />
+             <Route path="/vacancies" element={<Vacancy/>}/>
+            <Route path="/vacancyDetail/:id" element={<VacancyDetail />} />
+            <Route path="/vacancyApply" element={<VacancyApply />} />
+
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin/vacancy" element={<VacancyPage />} />
