@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { Button, Col, Row, Space, Table } from "antd";
 import axios from "axios";
 import { ADMIN_TOKEN, BASE_URL } from "../../../constants/base";
-import "./style.scss"
+import "./style.scss";
+
+
 function index() {
   const [vacancy, setVacancy] = useState([]);
   const user = [
@@ -178,10 +180,12 @@ function index() {
       dataIndex: "company",
       key: "email",
       width: 200,
-      render: (text, record) => <Space>
-        <img className="companyLogo" src={text.logo} alt="" />
-        <Link to={"/admin/companies"}>{text.name}</Link>
+      render: (text, record) => (
+        <Space>
+          <img className="companyLogo" src={text.logo} alt="" />
+          <Link to={"/admin/companies"}>{text.name}</Link>
         </Space>
+      ),
     },
     {
       title: "Təhsil",
@@ -194,8 +198,9 @@ function index() {
       title: "Maaş",
       dataIndex: "vacancyDetail",
       key: "email",
-       render: (text) => text.salary,
-    }, {
+      render: (text) => text.salary,
+    },
+    {
       title: "Təcrübə",
       dataIndex: "vacancyDetail",
       key: "email",
@@ -208,21 +213,18 @@ function index() {
       width: 150,
 
       render: (_, record) => (
-        <Space
-          size="middle"
-        >
-          <a >Edit</a>
+        <Space size="middle">
+          <a>Edit</a>
           <a>Delete</a>
         </Space>
       ),
     },
   ];
   function getVacancies() {
-     axios
+    axios
       .get(`${BASE_URL}admins/vacancy`, {
- 
         headers: {
-          Authorization:  `Bearer ${ADMIN_TOKEN}`
+          Authorization: `Bearer ${ADMIN_TOKEN}`,
         },
       })
       .then((response) => {
@@ -245,8 +247,11 @@ function index() {
         <Row className="containerCompanies">
           <Col span={24}>
             <Row className="containerCompanies_button">
+              
               <Col span={2}>
-                <Button><Link to={"add"}>Vakansiya əlavə et</Link></Button>
+                <Button>
+                  <Link to={"add"}>Vakansiya əlavə et</Link>
+                </Button>
               </Col>
             </Row>
           </Col>
