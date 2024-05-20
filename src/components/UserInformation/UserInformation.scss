@@ -10,7 +10,7 @@
     h1 {
         font-size: 24px;
         font-weight: 700;
-        color: #03314B;
+        color: #0851A3;
         font-family: "Montserrat", sans-serif;
     }
 
@@ -84,61 +84,61 @@
                         }
                     }
 
+                }
 
-                    .input-select {
-                        height: 40px;
-                        width: 285px;
-                        border-radius: 10px;
+                .input-select {
+                    height: 40px;
+                    width: 285px;
+                    border-radius: 10px;
 
-                        &:where(.css-dev-only-do-not-override-1okl62o).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
-                            border-color: #ff4d4f !important;
-                        }
-
-                        input {
-                            &::placeholder {
-                                color: #2d31a633;
-                            }
-                        }
-
-                        .ant-select-suffix {
-                            margin-bottom: 10px !important;
-
-                            svg {
-                                font-size: 16px;
-                                color: #2d31a633;
-                            }
-                        }
-
-                        .ant-picker-suffix {
-                            svg {
-                                font-size: 16px;
-                                color: #2d31a633;
-                            }
-                        }
-
+                    &:where(.css-dev-only-do-not-override-1okl62o).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+                        border-color: #ff4d4f !important;
                     }
 
-                    .input {
-                        height: 40px;
-                        border-radius: 10px;
-                        width: 285px;
-
-                        &:where(.css-dev-only-do-not-override-1okl62o).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
-                            border-color: #ff4d4f !important;
-                        }
-
-                        input {
-                            padding-left: 7px;
-
-                            &::placeholder {
-                                color: #2d31a633;
-                            }
-                        }
-
-                        svg {
-                            font-size: 20px;
+                    input {
+                        &::placeholder {
                             color: #2d31a633;
                         }
+                    }
+
+                    .ant-select-suffix {
+                        margin-bottom: 10px !important;
+
+                        svg {
+                            font-size: 16px;
+                            color: #2d31a633;
+                        }
+                    }
+
+                    .ant-picker-suffix {
+                        svg {
+                            font-size: 16px;
+                            color: #2d31a633;
+                        }
+                    }
+
+                }
+
+                .input {
+                    height: 40px;
+                    border-radius: 10px;
+                    width: 285px;
+
+                    &:where(.css-dev-only-do-not-override-1okl62o).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+                        border-color: #ff4d4f !important;
+                    }
+
+                    input {
+                        padding-left: 7px;
+
+                        &::placeholder {
+                            color: #2d31a633;
+                        }
+                    }
+
+                    svg {
+                        font-size: 20px;
+                        color: #2d31a633;
                     }
                 }
 
@@ -151,6 +151,7 @@
                 flex-direction: column;
                 gap: 25px;
                 padding: 30px 0 20px;
+
                 h2 {
                     font-size: 20px;
                     font-weight: 600;

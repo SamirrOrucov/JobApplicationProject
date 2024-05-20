@@ -218,10 +218,11 @@ function index() {
     },
   ];
   function getVacancies() {
-    axios
-      .get(BASE_URL + "/user-informations/soft-skills", {
+     axios
+      .get(`${BASE_URL}admins/vacancy`, {
+ 
         headers: {
-          Authorization: "Bearer " + ADMIN_TOKEN,
+          Authorization:  `Bearer ${ADMIN_TOKEN}`
         },
       })
       .then((response) => {
@@ -245,7 +246,7 @@ function index() {
           <Col span={24}>
             <Row className="containerCompanies_button">
               <Col span={2}>
-                <Button>Vakansiya əlavə et</Button>
+                <Button><Link to={"add"}>Vakansiya əlavə et</Link></Button>
               </Col>
             </Row>
           </Col>
