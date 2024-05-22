@@ -12,12 +12,12 @@ function VacancySection() {
       .get(`${BASE_URL}admins/vacancy`, {
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sInN1YiI6Im5paGF0QGRpdi5lZHUuYXoiLCJqdGkiOiIxIiwiaWF0IjoxNzE2MDU1Njk1LCJleHAiOjE3MTYwNjQ2OTV9.wGuCvimwmhOpE53tG91BgcA69kbFmAZ-60vFKp-CLLY",
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sInN1YiI6Im5paGF0QGRpdi5lZHUuYXoiLCJqdGkiOiIxIiwiaWF0IjoxNzE2NDExNzY4LCJleHAiOjE3MTY4NDM3Njh9.U998x6Cxd0sarZVSRiEi4mze9ViitP1bbkJXdyFcnpQ",
         },
       })
       .then((response) => {
         // Handle success
-        console.log(response.data);
+        setCompany(response.data);
       })
       .catch((error) => {
         // Handle error
@@ -40,24 +40,20 @@ function VacancySection() {
             </Link>
           </div>
           <div className="cards">
-            <div className="card">
-              <div className="card_datas">
-                <h3>Job's Name</h3>
-                <p>Company Name</p>
-                <h4>Salary Azn</h4>
-                <h5>Job's Category</h5>
-              </div>
-              <button>Daha Ətraflı</button>
-            </div>
-            <div className="card">
-              <div className="card_datas">
-                <h3>Front-End Developer</h3>
-                <p>Pasha Bank</p>
-                <h4>1500-2000 Azn</h4>
-                <h5>Information Technologies</h5>
-              </div>
-              <button>Daha Ətraflı</button>
-            </div>
+            {company.slice(0,6).map((x) => (
+              <Link>
+                <div className="card">
+                  <div className="card_datas">
+                    <h3>{x.vacancyDetail.position}</h3>
+                    <p>{x.company.name}</p>
+                    <h4>{x.vacancyDetail.salary} Azn</h4>
+                    <h5>{x.category.name}</h5>
+                  </div>
+                  <button>Daha Ətraflı</button>
+                </div>
+              </Link>
+            ))}
+
           </div>
         </div>
       </section>

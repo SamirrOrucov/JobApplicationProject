@@ -1,9 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./sirketler.scss";
+import axios from "axios";
+import { BASE_URL } from "../../../constants/base";
 
 function Sirketler() {
+  const [company, setCompany] = useState([]);
 
+  useEffect(() => {
+    getVacancies();
+  }, []);
+
+  function getVacancies() {
+    axios
+      .get(`${BASE_URL}admins/companies`, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sInN1YiI6Im5paGF0QGRpdi5lZHUuYXoiLCJqdGkiOiIxIiwiaWF0IjoxNzE2NDExNzY4LCJleHAiOjE3MTY4NDM3Njh9.U998x6Cxd0sarZVSRiEi4mze9ViitP1bbkJXdyFcnpQ",
+        },
+      })
+      .then((response) => {
+        // Handle success
+        setCompany(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
+  }
 
   return (
     <div>
@@ -16,63 +41,28 @@ function Sirketler() {
             </Link>
           </div>
           <div className="cards">
-            <div className="card">
-              <div className="card_datas">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6HX_9gDpvtu6_9H7aV6OmGXYPg_8vy7Wd1A&usqp=CAU"
-                  alt=""
-                />
-                <div className="infos">
-                  <div className="name">
-                    <h6>Dribble</h6>
-                    <p>Featured</p>
+            {company.map((x) => (
+              <div>
+                <div className="card">
+                  <div className="card_datas">
+                    <img
+                      src={x.logo}
+                      alt=""
+                    />
+                    <div className="infos">
+                      <div className="name">
+                        <h6>{x.name}</h6>
+                      </div>
+                      <div className="location">
+                        <i className="fa-solid fa-location-dot"></i>
+                        <p>Baku</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="location">
-                    <i className="fa-solid fa-location-dot"></i>
-                    <p>Baku</p>
-                  </div>
+                  <button>Open Position (3) </button>
                 </div>
               </div>
-              <button>Open Position (3) </button>
-            </div>
-            <div className="card">
-              <div className="card_datas">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6HX_9gDpvtu6_9H7aV6OmGXYPg_8vy7Wd1A&usqp=CAU"
-                  alt=""
-                />
-                <div className="infos">
-                  <div className="name">
-                    <h6>Dribble</h6>
-                    <p>Featured</p>
-                  </div>
-                  <div className="location">
-                    <i className="fa-solid fa-location-dot"></i>
-                    <p>Baku</p>
-                  </div>
-                </div>
-              </div>
-              <button>Open Position (3) </button>
-            </div>
-            <div className="card">
-              <div className="card_datas">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6HX_9gDpvtu6_9H7aV6OmGXYPg_8vy7Wd1A&usqp=CAU"
-                  alt=""
-                />
-                <div className="infos">
-                  <div className="name">
-                    <h6>Dribble</h6>
-                    <p>Featured</p>
-                  </div>
-                  <div className="location">
-                    <i className="fa-solid fa-location-dot"></i>
-                    <p>Baku</p>
-                  </div>
-                </div>
-              </div>
-              <button>Open Position (3) </button>
-            </div>
+            ))}
           </div>
         </div>
       </section>
