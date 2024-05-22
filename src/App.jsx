@@ -16,12 +16,6 @@ import Vacancy from "./pages/Vacancy";
 
 import UserInformationPage from "./pages/UserInformationPage/UserInformationPage";
 
-import AdminLayout from "./layouts/AdminLayout/AdminLayout";
-import VacancyPage from "./pages/Admin/VacancyPage";
-import UsersPage from "./pages/Admin/UsersPage";
-import UserDetail from "./pages/Admin/UsersPage/UserDetail";
-import CompanyPage from "./pages/Admin/CompanyPage";
-import VacancyDetail from "./pages/VacancyDetail/VacancyDetail";
 function App() {
   return (
     <>
@@ -31,7 +25,6 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/companies" element={<Companies />} />
             <Route path="/companies/detail" element={<CompaniesDetail />} />
-            <Route path="/vacancy/detail" element={<VacancyDetail />} />
             <Route path="/*" element={<NoPage />} />
             <Route path="/user-information" element={<UserInformationPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
