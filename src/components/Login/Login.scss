@@ -96,6 +96,10 @@
                 font-size: 17px;
                 letter-spacing: 0.5px;
                 display: block;
+
+                &:hover {
+                    background-color: #0850a3d3;
+                }
             }
 
             .have-acc {

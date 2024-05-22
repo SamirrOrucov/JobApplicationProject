@@ -1,1 +1,2 @@
-export const BASE_URL=" http://185.166.39.154:3003:3003/"
+export const BASE_URL="http://34.176.247.1/api/v1/"
+export const ADMIN_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sInN1YiI6Im5paGF0QGRpdi5lZHUuYXoiLCJqdGkiOiIxIiwiaWF0IjoxNzE2MjMyMzA5LCJleHAiOjE3MTY2NjQzMDl9._jisy4I2-3SK8wXVUv90SAFT2zdJJ7SrKT59Zh09lQk"

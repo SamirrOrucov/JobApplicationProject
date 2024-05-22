@@ -94,7 +94,7 @@ function Login() {
               GİRİŞ
             </Button>
             <p className="have-acc">
-              Hesabınız yoxdur? <Link to={"/sign-in"}>Yeni hesab yaradın</Link>
+              Hesabınız yoxdur? <Link to={"/register"}>Yeni hesab yaradın</Link>
             </p>
           </Form.Item>
         </Form>
