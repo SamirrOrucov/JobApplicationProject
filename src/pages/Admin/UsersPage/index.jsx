@@ -148,7 +148,7 @@ function index() {
   });
   const jobStatusOptions = [];
   jobStatus.map((item) => {
-    languageOptions.push({
+    jobStatusOptions.push({
       value: item.id,
       label: item.name,
     });
