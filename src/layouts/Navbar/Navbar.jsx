@@ -16,8 +16,7 @@ function Navbar() {
  
             <Link to={"/vacancies"}><h3>İş Elanları</h3></Link>
             <Link to="/companies"><h3>Şirkətlər</h3></Link>
-            <Link><h3>Müştəri Xidmətləri</h3></Link>
- 
+  
           </div>
           <Link to={"/login"}>
           <div className="login">
