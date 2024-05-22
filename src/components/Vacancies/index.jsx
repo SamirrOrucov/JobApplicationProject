@@ -33,20 +33,7 @@ function Vacancies() {
     <div>
       <div id="vacancies">
         <div className="container">
-
-
-          <div className="header">
-            <div className="mainImage"></div>
-            <img
-              className="categoryImage"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsDzT4ChP0uonxPmqq3EQiDLs9sLqcwybgCQ&usqp=CAU"
-              alt=""
-            />
-            <h2>Code & Programing</h2>
-          </div>
-
-          {/* Filter and Search of Categories */}
-          <section id="functions">
+        <section id="functions">
             <div className="container">
               <div className="search">
                 <div className="searching">
@@ -189,7 +176,20 @@ function Vacancies() {
           </section>
 
 
-          <h3>Vakansiyalar</h3>
+          {/* <div className="header">
+            <div className="mainImage"></div>
+            <img
+              className="categoryImage"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsDzT4ChP0uonxPmqq3EQiDLs9sLqcwybgCQ&usqp=CAU"
+              alt=""
+            />
+            <h2>Code & Programing</h2>
+          </div> */}
+
+          {/* Filter and Search of Categories */}
+       
+
+          {/* <h3>Vakansiyalar</h3> */}
 
           <div className="cards">
           {/* onChange={(e) => setFilter(e.target.value)} */}
