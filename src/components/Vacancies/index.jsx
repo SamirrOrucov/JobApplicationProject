@@ -70,7 +70,7 @@ function Vacancies() {
     <div>
       <div id="vacancies">
         <div className="container">
-          <div className="header">
+           <div className="header">
             <div className="mainImage"></div>
             <img
               className="categoryImage"
@@ -82,6 +82,7 @@ function Vacancies() {
 
           {/* Filter and Search of Categories */}
           <section id="functions">
+ 
             <div className="container">
               <div className="search">
                 <div className="searching">
@@ -206,7 +207,8 @@ function Vacancies() {
             </div>
           </section>
 
-          <h3>Vakansiyalar</h3>
+           <h3>Vakansiyalar</h3>
+ 
 
           <div className="cards">
             {product.slice(0, 10).map((x) => (
