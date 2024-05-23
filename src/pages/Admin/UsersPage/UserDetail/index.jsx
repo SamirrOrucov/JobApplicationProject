@@ -17,17 +17,17 @@ function index() {
       educationLevel: "Bachelour",
       university: "Azmiu",
       qualification: "Information Technologies",
-      startAndEndDate: "09.2021 07.2025",
+      startAndEndDate: "09.2021 - 07.2025",
       degree: "3",
     },
-    employmentStatusDetail: [
+    employmentStatusDetail: 
       {
         employmentStatus: "İşləyirəm ",
         workPlace: "Erp-Intel",
         position: "Frontend Developer",
         startDate: "2024.04.15",
       },
-    ],
+    
     language: [
       {
         name: "English",
@@ -52,7 +52,7 @@ function index() {
     studyLevel: "Bachelour",
     number: "0775177770",
     major: "Information Technology",
-    company: "ERP-Intel",
+    // fin: "ERP-Intel",
     job: "Frontend Developer",
     createdAt: "09.05.2024",
   };
@@ -66,28 +66,88 @@ function index() {
               {user.name + " " + user.surname}
             </p>
             <p>
-              <span>Email:</span>
-              {user.email}
+              <span>Ata Adı:</span>
+              {user.fatherName}
             </p>
           </div>
           <div className="userDetail_table_row">
             <p>
-              <span>Mobil nömrə:</span>
-              {user.number}
+              <span>FİN:</span>
+              {user.fin}
             </p>
             <p>
-              <span>Doğum Tarixi</span>
+              <span>Cins:</span>
+              {user.gender}
+            </p>
+          </div>
+          <div className="userDetail_table_row">
+            <p>
+              <span>Doğum tarixi:</span>
               {user.birthday}
+            </p>
+            <p>
+              <span>Ünvan:</span>
+              {user.liveAddres ? user.liveAddres : "Məlumat yoxdur"}
+            </p>
+          </div>
+          <div className="userDetail_table_row">
+            <p>
+              <span>Telefon:</span>
+              {user.number? user.number: "Məlumat yoxdur"}
+            </p>
+            <p>
+              <span>Email:</span>
+              {user.email ? user.email : "Məlumat yoxdur"}
+            </p>
+          </div>
+          <div className="userDetail_table_row">
+            <p>
+              <span>Hərbi mükəlləfiyyət:</span>
+              {user.militaryQualification? user.militaryQualification: "Məlumat yoxdur"}
+            </p>
+            <p>
+              <span>Ailə vəziyyəti:</span>
+              {user.martialStatus ? user.martialStatus : "Məlumat yoxdur"}
+            </p>
+          </div>
+          <div className="userDetail_table_row">
+            <p>
+              <span>Təhsil:</span>
+              {user.educationDetail.educationLevel ? user.educationDetail.educationLevel: "Məlumat yoxdur"}
+            </p>
+            <p>
+              <span>Universitet:</span>
+              {user.educationDetail.university ? user.educationDetail.university  : "Məlumat yoxdur"}
+            </p>
+          </div>
+          <div className="userDetail_table_row">
+            <p>
+              <span>İxtisas:</span>
+              {user.educationDetail.qualification ? user.educationDetail.qualification: "Məlumat yoxdur"}
+            </p>
+            <p>
+              <span>Başlama və bitmə vaxtı:</span>
+              {user.educationDetail.startAndEndDate ? user.educationDetail.startAndEndDate  : "Məlumat yoxdur"}
+            </p>
+          </div>
+          <div className="userDetail_table_row">
+            <p>
+              <span>Kurs:</span>
+              {user.educationDetail.degree ? user.educationDetail.degree: "Məlumat yoxdur"}
+            </p>
+            <p>
+              <span>İş vəziyyəti:</span>
+              {user.employmentStatusDetail.employmentStatus ? user.employmentStatusDetail.employmentStatus  : "Məlumat yoxdur"}
             </p>
           </div>
           <div className="userDetail_table_row">
             <p>
               <span>İş yeri:</span>
-              {user.company ? user.company : "Məlumat yoxdur"}
+              {user.employmentStatusDetail.workPlace ? user.employmentStatusDetail.workPlace: "Məlumat yoxdur"}
             </p>
             <p>
-              <span>Vəzifə:</span>
-              {user.job ? user.job : "Məlumat yoxdur"}
+              <span>:</span>
+              {user.employmentStatusDetail.workPlace ? user.employmentStatusDetail.employmentStatus  : "Məlumat yoxdur"}
             </p>
           </div>
         </div>
