@@ -1,15 +1,21 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
 import { BsEnvelope, BsPerson, BsShield, BsShieldSlash } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignIn.scss";
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
-function SignIn() {
+
+const SignIn = () => {
+  const navigate = useNavigate();
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+    navigate("/user-information", { state: { initialValues: values } });
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
     <div className="signin-container">
       <h1>İstifadəçi qeydiyyatı</h1>
@@ -191,6 +197,6 @@ function SignIn() {
       </div>
     </div>
   );
-}
+};
 
 export default SignIn;

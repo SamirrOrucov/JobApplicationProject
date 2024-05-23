@@ -4,7 +4,10 @@ import PhoneInput from "antd-phone-input";
 import React, { useState } from "react";
 import { BiMap } from "react-icons/bi";
 import { BsHouseDoor, BsPerson } from "react-icons/bs";
+import moment from "moment";
+
 const { Option } = Select;
+
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -12,6 +15,7 @@ const getBase64 = (file) =>
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
+
 function UserInfoForm({ initialValues, onFinish }) {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -19,16 +23,21 @@ function UserInfoForm({ initialValues, onFinish }) {
 
   const handleSubmit = (values) => {
     const phoneNumberObj = values.phoneNumber;
-    const formattedPhoneNumber = `+${phoneNumberObj.countryCode}${phoneNumberObj.areaCode}${phoneNumberObj.phoneNumber}`;
+    const formattedPhoneNumber = `+${phoneNumberObj?.countryCode}${phoneNumberObj?.areaCode}${phoneNumberObj?.phoneNumber}`;
     const formattedValues = {
       ...values,
       phoneNumber: formattedPhoneNumber,
+      birthdate: values.birthdate
+        ? values.birthdate.format("YYYY-MM-DD")
+        : null,
     };
     onFinish(formattedValues);
   };
+
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [fileList, setFileList] = useState([]);
+
   const handlePreview = async (file) => {
     if (!file.url && !file.preview) {
       file.preview = await getBase64(file.originFileObj);
@@ -36,30 +45,26 @@ function UserInfoForm({ initialValues, onFinish }) {
     setPreviewImage(file.url || file.preview);
     setPreviewOpen(true);
   };
+
   const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
+
   const uploadButton = (
-    <button
-      style={{
-        border: 0,
-        background: "none",
-      }}
-      type="button"
-    >
+    <div>
       <PlusOutlined />
-      <div
-        style={{
-          marginTop: 8,
-        }}
-      >
-        Upload
-      </div>
-    </button>
+      <div style={{ marginTop: 8 }}>Yüklə</div>
+    </div>
   );
+
   return (
     <Form
       name="basic"
       layout="vertical"
-      initialValues={initialValues}
+      initialValues={{
+        ...initialValues,
+        birthdate: initialValues.birthdate
+          ? moment(initialValues.birthdate)
+          : null,
+      }}
       labelCol={{
         span: 8,
       }}
@@ -71,28 +76,40 @@ function UserInfoForm({ initialValues, onFinish }) {
       autoComplete="off"
     >
       <div className="avatar">
-        <h2>Profil şəkli</h2>
-        <Upload
-          listType="picture-circle"
-          fileList={fileList}
-          onPreview={handlePreview}
-          onChange={handleChange}
+        <Form.Item
+          name="profileImage"
+          rules={[
+            {
+              required: false,
+              message: "Please upload your profile image!",
+            },
+          ]}
         >
-          {fileList.length >= 1 ? null : uploadButton}
-        </Upload>
-        {previewImage && (
-          <Image
-            wrapperStyle={{
-              display: "none",
-            }}
-            preview={{
-              visible: previewOpen,
-              onVisibleChange: (visible) => setPreviewOpen(visible),
-              afterOpenChange: (visible) => !visible && setPreviewImage(""),
-            }}
-            src={previewImage}
-          />
-        )}
+          <h2>Profil şəkli</h2>
+
+          <Upload
+            listType="picture-circle"
+            fileList={fileList}
+            onPreview={handlePreview}
+            onChange={handleChange}
+            beforeUpload={() => false} 
+          >
+            {fileList.length >= 1 ? null : uploadButton}
+          </Upload>
+          {previewImage && (
+            <Image
+              wrapperStyle={{
+                display: "none",
+              }}
+              preview={{
+                visible: previewOpen,
+                onVisibleChange: (visible) => setPreviewOpen(visible),
+                afterOpenChange: (visible) => !visible && setPreviewImage(""),
+              }}
+              src={previewImage}
+            />
+          )}
+        </Form.Item>
       </div>
       <div className="inputs">
         <div className="line">
@@ -102,7 +119,7 @@ function UserInfoForm({ initialValues, onFinish }) {
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: "Please input your father's name!",
               },
             ]}
           >
@@ -159,7 +176,7 @@ function UserInfoForm({ initialValues, onFinish }) {
               {
                 type: "object",
                 required: true,
-                message: "Please select time!",
+                message: "Please select birthdate!",
               },
             ]}
           >

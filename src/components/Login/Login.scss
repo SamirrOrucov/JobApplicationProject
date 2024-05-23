@@ -102,6 +102,15 @@
                 }
             }
 
+            .ant-form-item-control-input {
+                min-height: 5px;
+
+                .ant-form-item-explain-error {
+                    text-align: center;
+                }
+            }
+
+
             .have-acc {
                 text-align: center;
                 color: #71717A;

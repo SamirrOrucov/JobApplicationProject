@@ -142,6 +142,35 @@
                     }
                 }
 
+                .input-line {
+                    display: flex;
+                    gap: 50px;
+                    justify-content: space-between;
+
+                    .employment {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        .employment-inputs {
+                            display: flex;
+                            gap: 10px;
+                            flex-direction: column;
+                        }
+                    }
+
+                    .language {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        .language-inputs {
+                            display: flex;
+                            gap: 10px;
+                            flex-direction: column;
+                        }
+                    }
+                }
             }
 
             .cv-form {
@@ -178,12 +207,14 @@
                     background-color: #ffffff;
                     border: 2px solid #0851A3;
                     color: #0851A3;
+                    margin-right: 10px !important;
 
                     &:hover {
                         background-color: #0851A3;
                         color: white;
                     }
                 }
+
 
                 button {
                     background-color: #0851A3;
