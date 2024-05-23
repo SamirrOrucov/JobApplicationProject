@@ -1,20 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.scss";
 import { Button, Checkbox, Form, Input } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsEnvelope, BsShieldSlash } from "react-icons/bs";
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
-function Login() {
+import axios from "axios";
+import { BASE_URL } from "../../constants/base";
+
+const Login = () => {
+  const [form] = Form.useForm();
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const onFinish = (values) => {
+    UserLogin(values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
+  const UserLogin = (values) => {
+    axios
+      .post(`${BASE_URL}users/authentication`, values)
+      .then((response) => {
+        console.log("Success:", response.data);
+        setError(null);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        if (error.response && error.response.data) {
+          setError(error.response.data.message);
+        } else {
+          setError("Gözlənilməz xəta baş verdi,az sonra yenidən yoxlayın");
+        }
+      });
+  };
+
   return (
     <div className="login-container">
       <h1>Hesaba daxil ol</h1>
       <div className="login-content">
         <Form
+          form={form}
           name="basic"
           labelCol={{
             span: 8,
@@ -34,7 +61,7 @@ function Login() {
         >
           <div className="inputs">
             <Form.Item
-              name="email"
+              name="username"
               rules={[
                 {
                   required: true,
@@ -60,7 +87,10 @@ function Login() {
                   required: true,
                   message: "Zəhmət olmasa şifrənizi daxil edin!",
                 },
-                { min: 8, message: "Şifrə ən az 8 simvoldan ibarət olmalıdır!" },
+                {
+                  min: 8,
+                  message: "Şifrə ən az 8 simvoldan ibarət olmalıdır!",
+                },
               ]}
             >
               <Input.Password
@@ -70,6 +100,7 @@ function Login() {
               />
             </Form.Item>
           </div>
+
           <Form.Item
             name="remember"
             valuePropName="checked"
@@ -93,14 +124,26 @@ function Login() {
             <Button type="primary" htmlType="submit">
               GİRİŞ
             </Button>
-            <p className="have-acc">
-              Hesabınız yoxdur? <Link to={"/register"}>Yeni hesab yaradın</Link>
-            </p>
+
           </Form.Item>
+
+          <p className="have-acc">
+            Hesabınız yoxdur? <Link to={"/register"}>Yeni hesab yaradın</Link>
+          </p>
+          {error && (
+            <Form.Item
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+              validateStatus="error"
+              help={error}
+            ></Form.Item>
+          )}
         </Form>
       </div>
     </div>
   );
-}
+};
 
 export default Login;

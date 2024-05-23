@@ -1,18 +1,24 @@
-import { Steps } from "antd";
+import { Steps, Button } from "antd";
 import React, { useState } from "react";
 import { BiFileBlank } from "react-icons/bi";
 import { BsBook, BsPerson, BsPersonWorkspace } from "react-icons/bs";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 import CvForm from "./CvForm";
 import UserEducationForm from "./UserEducationForm";
 import UserEmploymentForm from "./UserEmploymentForm";
 import UserInfoForm from "./UserInfoForm";
 import "./UserInformation.scss";
+import { BASE_URL } from "../../constants/base";
 
 const { Step } = Steps;
 
-function UserInformation() {
+const UserInformation = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const initialValues = location.state?.initialValues || {};
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(initialValues);
 
   const handleNext = (values) => {
     setFormData({ ...formData, ...values });
@@ -24,8 +30,28 @@ function UserInformation() {
   };
 
   const onFinish = (values) => {
-    setFormData({ ...formData, ...values });
-    console.log("Final form data:", formData);
+    const newData = { ...formData, ...values };
+    const { confirm, agreement, aaaa, ...dataToSubmit } = newData;
+    const { name, surname, email, password, ...userInfoData } = dataToSubmit;
+    const finalData = {
+      userInformation: userInfoData,
+      name,
+      surname,
+      email,
+      password,
+    };
+
+    console.log("Final form data:", finalData);
+
+    axios
+      .post(`${BASE_URL}users/registration`, finalData)
+      .then((response) => {
+        console.log("Success:", response.data);
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const steps = [
@@ -82,6 +108,6 @@ function UserInformation() {
       </div>
     </div>
   );
-}
+};
 
 export default UserInformation;
