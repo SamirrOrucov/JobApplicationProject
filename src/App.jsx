@@ -6,6 +6,7 @@ import UsersPage from "./pages/Admin/UsersPage";
 import UserDetail from "./pages/Admin/UsersPage/UserDetail";
 import VacancyPage from "./pages/Admin/VacancyPage";
 import AddVacancy from "./pages/Admin/VacancyPage/AddVacancy";
+import AddCompany from "./pages/Admin/CompanyPage/AddCompany";
 import Companies from "./pages/Companies/Companies";
 import CompaniesDetail from "./pages/Companies/CompaniesDetail/CompaniesDetail";
 import Home from "./pages/Home";
@@ -34,10 +35,10 @@ function App() {
             <Route path="/user-information" element={<UserInformationPage />} />
             <Route path="/register" element={<SignInPage />} />
             <Route path="/login" element={<LoginPage />} />
-             <Route path="/vacancies" element={<Vacancy/>}/>
+            <Route path="/vacancies" element={<Vacancy />} />
             <Route path="/vacancyDetail/:id" element={<VacancyDetail />} />
             <Route path="/vacancyApply" element={<VacancyApply />} />
-            <Route path="/userProfile" element={<Profile/>}/>
+            <Route path="/userProfile" element={<Profile />} />
 
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
@@ -46,6 +47,7 @@ function App() {
             <Route path="/admin/users" element={<UsersPage />} />
             <Route path="/admin/users/detail" element={<UserDetail />} />
             <Route path="/admin/companies" element={<CompanyPage />} />
+            <Route path="/admin/companies/add" element={<AddCompany />} />
           </Route>
         </Routes>
       </BrowserRouter>
