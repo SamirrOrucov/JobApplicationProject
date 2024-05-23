@@ -70,7 +70,7 @@ function index() {
       dataIndex: "image",
       key: "surname",
       width: 300,
-      render: (text, record) =><Space style={{alignItems:"center",paddingLeft:"50px"}}> <img className="companyIcon" src={text} /></Space>,
+      render: (text, record) => <Space style={{ alignItems: "center", paddingLeft: "50px" }}> <img className="companyIcon" src={text} /></Space>,
     },
     {
       title: "Ad",
@@ -78,7 +78,7 @@ function index() {
       dataIndex: "name",
       key: "name",
       render: (text, record) => (
-         text 
+        text
       ),
     },
 
@@ -99,7 +99,7 @@ function index() {
           size="middle"
           style={{ textAlign: "center", paddingLeft: "50px" }}
         >
-           <a>Delete</a>
+          <a>Delete</a>
         </Space>
       ),
     },
@@ -111,7 +111,9 @@ function index() {
           <Col span={24}>
             <Row className="containerCompanies_button">
               <Col span={2}>
-                <Button>Şirkət əlavə et</Button>
+                <Button >
+                  <Link to={"add"}>Şirkət əlavə et</Link>
+                </Button>
               </Col>
             </Row>
           </Col>

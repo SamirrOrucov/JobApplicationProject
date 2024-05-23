@@ -9,8 +9,8 @@ function Home() {
   return (
     <div>
       <FiltersComponents/>
-      <Sirketler/>
       <VacancySection/>
+      <Sirketler/>
    </div>
   );
 }
