@@ -6,6 +6,7 @@ import UsersPage from "./pages/Admin/UsersPage";
 import UserDetail from "./pages/Admin/UsersPage/UserDetail";
 import VacancyPage from "./pages/Admin/VacancyPage";
 import AddVacancy from "./pages/Admin/VacancyPage/AddVacancy";
+import AppliedUsers from "./pages/Admin/VacancyPage/VacancyApplierPage";
 import AddCompany from "./pages/Admin/CompanyPage/AddCompany";
 import Companies from "./pages/Companies/Companies";
 import CompaniesDetail from "./pages/Companies/CompaniesDetail/CompaniesDetail";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin/vacancy" element={<VacancyPage />} />
             <Route path="/admin/vacancy/add" element={<AddVacancy />} />
+            <Route path="/admin/vacancy/applies" element={<AppliedUsers />} />
             <Route path="/admin/users" element={<UsersPage />} />
             <Route path="/admin/users/detail" element={<UserDetail />} />
             <Route path="/admin/companies" element={<CompanyPage />} />

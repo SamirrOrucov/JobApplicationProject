@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Col, Row, Space, Table } from "antd";
+import { Button, Col, Row, Select, Space, Table } from "antd";
 import axios from "axios";
 import { ADMIN_TOKEN, BASE_URL } from "../../../constants/base";
 import "./style.scss";
 
-
 function index() {
   const [vacancy, setVacancy] = useState([]);
+  const [companies, setCompanies] = useState([]);
+
   const user = [
     {
       id: "2142332512",
@@ -215,6 +216,7 @@ function index() {
       render: (_, record) => (
         <Space size="middle">
           <a>Edit</a>
+          <Link to={"applies"}>Open</Link>
           <a>Delete</a>
         </Space>
       ),
@@ -228,30 +230,71 @@ function index() {
         },
       })
       .then((response) => {
-        // Handle success
         console.log(response.data);
       })
       .catch((error) => {
-        // Handle error
         console.error(error);
       });
   }
 
+  const getCompanies = () => {
+    axios
+      .get(`${BASE_URL}admins/companies`, {
+        headers: {
+          Authorization: `Bearer ${ADMIN_TOKEN}`,
+        },
+      })
+      .then((response) => {
+        setCompanies(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  
+  const companyOptions = [];
+  companies.map((item) => {
+    companyOptions.push({
+      value: item.id,
+      label: item.name,
+    });
+  });
   useEffect(() => {
     getVacancies();
+    getCompanies();
   }, []);
-
   return (
     <div className="articleRequests">
       <div className="articleRequests_container">
         <Row className="containerCompanies">
           <Col span={24}>
             <Row className="containerCompanies_button">
-              
               <Col span={2}>
                 <Button>
                   <Link to={"add"}>Vakansiya əlavə et</Link>
                 </Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+              <Select
+                  showSearch
+                  className="addVacancy_container_company"
+                  style={{
+                    width: 150,
+                  }}
+                  placeholder="Şirkəti seçin"
+                  optionFilterProp="children"
+                  filterOption={(input, option) =>
+                    (option?.label ?? "").includes(input)
+                  }
+                  filterSort={(optionA, optionB) =>
+                    (optionA?.label ?? "")
+                      .toLowerCase()
+                      .localeCompare((optionB?.label ?? "").toLowerCase())
+                  }
+                  options={companyOptions}
+                />
               </Col>
             </Row>
           </Col>

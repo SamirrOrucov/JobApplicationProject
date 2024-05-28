@@ -19,7 +19,6 @@ function index() {
     });
   };
   const onFinish = (values) => {
-    console.log("Success:", values);
     const transformedValues = {
       categoryId: parseInt(values.category),
       companyId: parseInt(values.company),
