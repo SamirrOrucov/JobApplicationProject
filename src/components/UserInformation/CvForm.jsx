@@ -1,6 +1,7 @@
 import { InboxOutlined } from "@ant-design/icons";
 import { Button, Form, Upload, message } from "antd";
 import React from "react";
+import { BASE_URL } from "../../constants/base";
 
 const { Dragger } = Upload;
 
@@ -28,7 +29,8 @@ const CvForm = ({ initialValues, onFinish, onPrev }) => {
   const props = {
     name: "file",
     multiple: true,
-    action: "",
+    action: `${BASE_URL}upload`, 
+    withCredentials: true, 
     onChange: handleFileChange,
     onDrop(e) {
       console.log("Dropped files", e.dataTransfer.files);

@@ -44,13 +44,19 @@ const UserInformation = () => {
     console.log("Final form data:", finalData);
 
     axios
-      .post(`${BASE_URL}users/registration`, finalData)
+      .post(`${BASE_URL}users/registration`, values)
       .then((response) => {
-        console.log("Success:", response.data);
-        navigate("/login");
+        console.log("Registration Success:", response.data);
+        const token = response.data.token;
+        Cookies.set("token", token, {
+          path: "/",
+          secure: true,
+          sameSite: "strict",
+        });
+        navigate("/user-information", { state: { initialValues: values } });
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Registration Error:", error);
       });
   };
 
